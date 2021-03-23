@@ -1,11 +1,11 @@
 #!/bin/bash
-...output omitted...
+export MYSQL_PWD=$MYSQL_PASSWORD
 echo 'Downloading SQL script that initializes the database...'
 curl -s -O https://raw.githubusercontent.com/rajeshkumarboda/ocp-scripts/main/users.sql
 echo "Trying $HOOK_RETRIES times, sleeping $HOOK_SLEEP sec between tries:"
 while [ "$HOOK_RETRIES" != 0 ]; do
 echo -n 'Checking if MySQL is up...'
-if mysqlshow -h$MYSQL_SERVICE_HOST -u$MYSQL_USER -p$MYSQL_PASSWORD -P3306
+if mysqlshow -h$MYSQL_SERVICE_HOST -u$MYSQL_USER -P3306
 $MYSQL_DATABASE &>/dev/null
 then
 echo 'Database is up'
