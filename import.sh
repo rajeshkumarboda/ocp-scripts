@@ -1,7 +1,7 @@
 #!/bin/bash
 export MYSQL_PWD=$MYSQL_PASSWORD
 export HOOK_RETRIES=3
-export HOOK_SLEEP=10
+export HOOK_SLEEP=100
 echo 'Downloading SQL script that initializes the database...'
 curl -s -O https://raw.githubusercontent.com/rajeshkumarboda/ocp-scripts/main/users.sql
 echo "Trying $HOOK_RETRIES times, sleeping $HOOK_SLEEP sec between tries:"
